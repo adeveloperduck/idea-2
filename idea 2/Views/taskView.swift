@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct taskView: View {
+    @State private var tasks: [String] = []
+    @State private var newTask = ""
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            TextField("New task", text: $newTask)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+            
+                .onSubmit {
+                    let t = newTask.trimmingCharacters(in: .whitespacesAndNewlines)
+                    guard !t.isEmpty else { return }
+                    tasks.append(t)
+                    newTask = ""
+                }
+            List(tasks, id: \.self, rowContent: Text.init)
+        }
+        .padding()
     }
 }
 
-#Preview {
-    taskView()
-}
+#Preview { taskView() }

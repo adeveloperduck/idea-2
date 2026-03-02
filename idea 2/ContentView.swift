@@ -9,16 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        ZStack {
+            Color(red: 255/255, green: 255/255, blue: 0xF2/255)
+                .ignoresSafeArea()
+            
+            TabView {
+                notesView()
+                    .tabItem {
+                        Label("Notes", systemImage: "note.text")  // tab label
+                    }
+                
+                taskView()
+                    .tabItem {
+                        Label("Tasks", systemImage: "checklist")  // tab label
+                    }
+            }        }
     }
 }
-
 #Preview {
     ContentView()
 }

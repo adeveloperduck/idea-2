@@ -12,7 +12,8 @@ struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            
         }
-        .defaultSize(width: 1060, height: 636)
+        .windowStyle(.hiddenTitleBar)
     }
 }

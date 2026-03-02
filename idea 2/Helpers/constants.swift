@@ -8,5 +8,6 @@
 import Foundation
 
 struct Constants {
-    static let buttonHiString = "Hi"
+    static let notesString = "Notes"
+    static let tasksString = "Tasks"
 }
